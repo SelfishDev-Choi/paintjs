@@ -15,3 +15,17 @@ index.html 에서 title 수정 및 styless.css, app.js 링크 추가
 vsc의 terminal에서 다음 항목을 통해 git을 초기화 함
 -> git add .    
 -> git commit -m "Initial Commit"
+
+한번에 코드 만들기
+div.controls__btns>button#jsMode+button#jsSave
+
+만들어진 코드
+<div class="controls__btns">
+    <button id="jsMode">
+    </button>
+    <button id="jsSave">
+    </button>
+</div>
+
+canvas에 대한 mdn 주소
+https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
