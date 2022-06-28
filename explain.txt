@@ -1,0 +1,17 @@
+
+크롬에서 github.com/new로 이동해서 폴더 생성
+add README 체크
+Add .gitignore 항목에서 Node 항목 선택
+
+터미널 열어서 
+저장하고자 하는 폴더로 이동한 다음
+-> git clone https://github.com/SelfishDev-Choi/paintjs
+명령으로 git 복제 폴더 생성
+
+visual studio code(vsc) 실행해서 생성된 폴더 열기
+index.html, styless.css, app.js  파일 생성
+index.html 에서 title 수정 및 styless.css, app.js 링크 추가
+
+vsc의 terminal에서 다음 항목을 통해 git을 초기화 함
+-> git add .    
+-> git commit -m "Initial Commit"
