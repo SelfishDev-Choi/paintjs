@@ -15,6 +15,8 @@ const INITIAL_COLOR = "2c2c2c";
 //canvas.width = CANVAS_WIDTH;
 //canvas.height = CANVAS_HEIGHT;
 
+colors[0].innerText = "📌";
+
 ctx.fillStyle = "white";
 ctx.fillRect(0,0,canvas.clientWidth,canvas.clientHeight);    
 ctx.strokeStyle = INITIAL_COLOR;
@@ -25,16 +27,21 @@ let painting = false;
 let filling = false;
 
 function stopPainting(){
-    painting = false;
+    if(!filling){
+        painting = false;
+    }
 }
 
 function startPainting(){
-    painting = true;
+    if(!filling){
+        painting = true;
+    }
 }
 
 function onMouseMove(event) {
     const x = event.offsetX;
     const y = event.offsetY;
+    
     
     if(!painting){
         ctx.beginPath(); //painting 가 false가 되면 path의 시작점을 변경해 주어야 한다. 
@@ -44,6 +51,13 @@ function onMouseMove(event) {
         ctx.stroke()
     }
     
+}
+
+function handleClick(event){
+    if(filling){
+        ctx.fillStyle = ctx.strokeStyle;
+        ctx.fillRect(0,0,canvas.clientWidth,canvas.clientHeight);    
+    }
 }
 
 /*
@@ -68,13 +82,8 @@ function handleColorClick(event){
 
     Array.from(colors).forEach(color => color.innerText="");
 
-
     event.target.innerText = "📌"
 
-    if(filling){
-        ctx.fillStyle = clr;
-        ctx.fillRect(0,0,canvas.clientWidth,canvas.clientHeight);    
-    }
 
 }
 
@@ -113,6 +122,7 @@ if(canvas){
     canvas.addEventListener("mouseup", stopPainting);
     canvas.addEventListener("mouseleave", stopPainting);
     canvas.addEventListener("contextmenu", handleContextMenuClick);
+    canvas.addEventListener("click", handleClick)
 }
 
 //console.log(Array.from(colors));
