@@ -123,7 +123,7 @@ if(canvas){
     canvas.addEventListener("mouseup", stopPainting);
     canvas.addEventListener("mouseleave", stopPainting);
     canvas.addEventListener("contextmenu", handleContextMenuClick);
-    canvas.addEventListener("click", handleClick)
+    canvas.addEventListener("click", handleClick); //click 이벤트를 생성해서 클릭시 filling 처리
 }
 
 //console.log(Array.from(colors));
